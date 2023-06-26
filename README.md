@@ -8,11 +8,14 @@ Common Bandit. Utility functions. Global
 npm install cbandit
 ```
 
-## Some Usage
+## Import
 
 ```javascript
 import Global from 'cbandit'
+```
 
+## Data Handling
+```javascript
 //safely convert data to json 
 var json = Global.stringify(items);
 
@@ -23,10 +26,9 @@ var items = Global.parse(json);
 if(Global.isset(items)){
 	
 }
-
-
-
 ```
+
+
 
 ## License
 
