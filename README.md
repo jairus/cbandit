@@ -83,8 +83,8 @@ Global.postData({
 	},
 	//called on error
 	/*
-		endpoint returning this json structure: {"error":"error"}
-		would trigger this callback
+	endpoint returning this json structure: {"error":"error"}
+	would trigger this callback
 	*/
 	error: (error) => { 
 		var json = Global.stringify(error);
