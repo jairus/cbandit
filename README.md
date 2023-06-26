@@ -84,7 +84,7 @@ Global.postData({
 		var json = Global.stringify(error);
 		Global.error("error: "+json);
 	},
-	callback: () => { //this will be called wether success of error
+	callback: () => { //this will be called whether success or error
 		Global.hideloading();
 	}
 });
