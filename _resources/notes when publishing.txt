@@ -1,9 +1,6 @@
-//up convert script.ts to script.js
-
-	npm install -g typescript
-	tsc script.ts
 
 //to patch and publish 
 	
+	npm run build
 	npm version patch 
 	npm publish
