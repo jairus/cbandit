@@ -33,6 +33,13 @@ if(Global.isset(item)){
 //to md5 hash a string
 var hash = Global.parse(json);
 
+//to base64 encoding
+var b64encoded = Global.base64encode(json);
+
+//to base64 decode
+var b64decoded = Global.base64decode(b64encoded);
+
+
 //typecast to string
 var str = Global.toString(123);
 

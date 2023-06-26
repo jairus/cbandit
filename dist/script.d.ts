@@ -4,7 +4,9 @@ declare class Global {
     static datahash: string;
     static localStorage: LocalForage;
     constructor();
-    static md5: (e: any) => any;
+    static base64Encode(str: any): string;
+    static base64Decode(str: any): string;
+    static md5(input: string): string;
     static watchGlobalData(logging?: boolean): void;
     static log(...params: any[]): void;
     static alert(msg: any): void;
