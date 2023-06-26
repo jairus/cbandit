@@ -44,7 +44,7 @@ var num = Global.toFloat("123.4");
 
 
 ```
-## Loader, Alert, Confirm dialog
+## Loader, Alert, Confirm Dialog
 ```javascript
 //to show loader
 Global.loading();
@@ -52,16 +52,16 @@ Global.loading();
 //to hide loader
 Global.hideLoading();
 
-//alert
+//Alert
 Global.alert("Hello World!");
 
-//success alert
+//Success Alert
 Global.success("Success! Hello World!");
 
-//error alert
-Global.error("Success! Hello World!");
+//Error Alert
+Global.error("Error! Hello World!");
 
-//confirm dialog
+//Confirm Dialog
 Global.error("Confirm?", (n)=>{
 	if(n){
 		Global.success("Confirmed!");
