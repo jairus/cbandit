@@ -6,9 +6,10 @@
   "keywords": [
     "bandit"
   ],
-  "main": "script.ts",
+  "main": "dist/script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+	"build": "babel src --out-dir dist"
   },
   "repository": {
     "type": "git",
@@ -23,5 +24,9 @@
   "dependencies": {
     "localforage": "^1.10.0",
     "sweetalert2": "^11.7.12"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.22.5",
+    "@babel/preset-env": "^7.22.5"
   }
 }

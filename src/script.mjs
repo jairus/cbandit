@@ -142,7 +142,7 @@ class Global {
 		});
 	}
 
-	static confirm(msg="", callback=()=>{}, confirmtext="", canceltxt=""){
+	static confirm(msg="", callback=(n)=>{}, confirmtext="", canceltxt=""){
 		if(!Global.isset(confirmtext)){
 			confirmtext = "Confirm";
 		}
@@ -169,7 +169,7 @@ class Global {
 
 	static isset(v, strict=false){
 		//not strict
-		if(typeof strict == "undefined" || strict==""){
+		if(!strict){
 			if(typeof v == "undefined"){
 				return false;
 			}
@@ -252,7 +252,7 @@ class Global {
 		return obj;
 	}
 
-	static toString(str){
+	static toString(str=""){
 		if(typeof str != "undefined" && str != null){
 			return str+"";
 		}
@@ -261,7 +261,7 @@ class Global {
 		}
 	}
 	
-	static toInt(n){
+	static toInt(n=0){
 		if(typeof n != "undefined" && n != null && !isNaN(n)){
 			return parseInt(n);
 		}
@@ -270,7 +270,7 @@ class Global {
 		}
 	}
 	
-	static toFloat(n){
+	static toFloat(n=0){
 		if(typeof n != "undefined" && n != null && !isNaN(n)){
 			return parseFloat(n);
 		}
