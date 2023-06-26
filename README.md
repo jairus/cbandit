@@ -40,7 +40,7 @@ var str = Global.toString(123);
 var n = Global.toInt("123");
 
 //typecast to float
-var num = Global.toInt("123.4");
+var num = Global.toFloat("123.4");
 
 
 ```
