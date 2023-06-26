@@ -20,7 +20,7 @@ import Global from 'cbandit'
 var someitem = {somekey:"somevalue"};
 
 //safely convert data to json 
-var json = Global.stringify(items);
+var json = Global.stringify(item);
 
 //safely parse a json string
 var item = Global.parse(json);
