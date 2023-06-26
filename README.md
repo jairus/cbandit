@@ -16,11 +16,22 @@ import Global from 'cbandit'
 
 ## Data Handling
 ```javascript
+
+var someitem = {somekey:"somevalue"};
+
 //safely convert data to json 
 var json = Global.stringify(items);
 
 //safely parse a json string
-var items = Global.parse(json);
+var item = Global.parse(json);
+
+//safely check if data has value
+if(Global.isset(item)){
+	console.log("item", item);
+}
+
+//to md5 hash a string
+var hash = Global.parse(json);
 
 //typecast to string
 var str = Global.toString(123);
@@ -31,10 +42,7 @@ var n = Global.toInt("123");
 //typecast to float
 var num = Global.toInt("123.4");
 
-//safely check if data has value
-if(Global.isset(items)){
-	
-}
+
 ```
 ## Loader, Alert, Confirm dialog
 ```javascript
