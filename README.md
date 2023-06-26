@@ -75,16 +75,23 @@ Global.loading();
 Global.postData({
 	url: 'https://nmg.ph/_endpoint.php',
 	data: data,
-	success: (ret) => { //called on success
+	//called on success
+	success: (ret) => { 
 		console.log("ret", ret);
 		var json = Global.stringify(ret);
 		Global.success("response: "+json);
 	},
-	error: (error) => { //called on error
+	//called on error
+	/*
+		endpoint returning this json structure: {"error":"error"}
+		would trigger this callback
+	*/
+	error: (error) => { 
 		var json = Global.stringify(error);
 		Global.error("error: "+json);
 	},
-	callback: () => { //this will be called whether success or error
+	//this will be called whether success or error
+	callback: () => { 
 		Global.hideloading();
 	}
 });

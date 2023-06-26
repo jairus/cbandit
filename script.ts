@@ -167,7 +167,7 @@ class Global {
 		});
 	}
 
-	static isset(v, strict){
+	static isset(v, strict=false){
 		//not strict
 		if(typeof strict == "undefined" || strict==""){
 			if(typeof v == "undefined"){
@@ -279,7 +279,7 @@ class Global {
 		}
 	}
 	
-	static postData(args={url:"", success:()=>{}, error:()=>{}, callback:()=>{}}) {
+	static postData(args={url:"", success:(ret)=>{}, error:(error)=>{}, callback:(data)=>{}}) {
 		const url = args?.url; // Replace with your API endpoint
 		if(!Global.isset(url)){
 			var error = "Invalid URL";
@@ -309,23 +309,23 @@ class Global {
 					throw new Error('POST request failed.');
 				}
 			})
-			.then(data => {
-				// Handle the response data
-				if(data?.error){
-					var error = data?.error;
+			.then(ret => {
+				// Handle the response ret
+				if(Global.isset(ret?.error)){
+					var error = ret?.error;
 					// Handle any errors
 					args?.['error']?.(error);
 					args?.['callback']?.(error);
 					console.error(error);
 				}
 				else{
-					args?.['success']?.(data);
-					args?.['callback']?.(data);
+					args?.['success']?.(ret);
+					args?.['callback']?.(ret);
 				}
 			})
 			.catch(error => {
 				if (!navigator.onLine) {
-					error = 'Disconnected';
+					error = 'No internet connection.';
 				}
 				// Handle any errors
 				args?.['error']?.(error);
