@@ -6,6 +6,7 @@ declare class Global {
     constructor();
     static base64Encode(str: any): string;
     static base64Decode(str: any): string;
+    static sha256(input: string, seed: string): any;
     static md5(input: string): string;
     static watchGlobalData(logging?: boolean): void;
     static log(...params: any[]): void;

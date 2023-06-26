@@ -31,7 +31,10 @@ if(Global.isset(item)){
 }
 
 //to md5 hash a string
-var hash = Global.parse(json);
+var md5hash = Global.md5(json);
+
+//to sha256 hash with seed
+var sha256hash = Global.sha256(json, md5hash);
 
 //to base64 encoding
 var b64encoded = Global.base64encode(json);

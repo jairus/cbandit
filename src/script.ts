@@ -1,6 +1,8 @@
 import localforage from 'localforage';
 import Swal from 'sweetalert2';
 import { MD5 } from 'crypto-js';
+import { HmacSHA256 } from 'crypto-js';
+import { Hex } from 'crypto-js';
 
 class Global {
 	static data = {};
@@ -31,6 +33,11 @@ class Global {
 		return decodedString;
 	}
 	
+	static sha256(input: string, seed: string) {
+		const hash = HmacSHA256(input, seed).toString(Hex);
+		return hash;
+	}
+
 	static md5(input: string): string {
 		const hash = MD5(input);
 		return hash;

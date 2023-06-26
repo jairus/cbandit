@@ -6,6 +6,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const localforage_1 = __importDefault(require("localforage"));
 const sweetalert2_1 = __importDefault(require("sweetalert2"));
 const crypto_js_1 = require("crypto-js");
+const crypto_js_2 = require("crypto-js");
+const crypto_js_3 = require("crypto-js");
 class Global {
     constructor() { }
     static base64Encode(str) {
@@ -15,6 +17,10 @@ class Global {
     static base64Decode(str) {
         const decodedString = atob(str);
         return decodedString;
+    }
+    static sha256(input, seed) {
+        const hash = (0, crypto_js_2.HmacSHA256)(input, seed).toString(crypto_js_3.Hex);
+        return hash;
     }
     static md5(input) {
         const hash = (0, crypto_js_1.MD5)(input);
