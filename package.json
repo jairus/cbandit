@@ -1,0 +1,26 @@
+{
+  "name": "cbandit",
+  "version": "1.1.1",
+  "description": "Common Bandit. Just some useful utily functions",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jairus/cbandit.git"
+  },
+  "keywords": [
+    "bandit"
+  ],
+  "author": "Jairus Judheus Bondoc",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jairus/cbandit/issues"
+  },
+  "homepage": "https://github.com/jairus/cbandit#readme",
+  "dependencies": {
+    "localforage": "^1.10.0",
+    "sweetalert2": "^11.7.12"
+  }
+}
