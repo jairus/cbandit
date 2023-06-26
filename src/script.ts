@@ -22,90 +22,19 @@ class Global {
 	constructor() {}
 	
 	static base64Encode(str:any) {
-		// Base64 character set
-		const chars =
-			"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
-		
-		let result = "";
-		let padding = "";
-		
-		for (let i = 0; i < str.length; i += 3) {
-			const char1 = str.charCodeAt(i);
-			const char2 = str.charCodeAt(i + 1);
-			const char3 = str.charCodeAt(i + 2);
-		
-			const byte1 = char1 >> 2;
-			const byte2 = ((char1 & 3) << 4) | (char2 >> 4);
-			const byte3 = ((char2 & 15) << 2) | (char3 >> 6);
-			const byte4 = char3 & 63;
-		
-			result +=
-			chars.charAt(byte1) +
-			chars.charAt(byte2) +
-			chars.charAt(byte3) +
-			chars.charAt(byte4);
-		}
-		
-		// Pad the result if needed
-		const paddingLength = str.length % 3;
-		if (paddingLength === 1) {
-			padding = "==";
-		} else if (paddingLength === 2) {
-			padding = "=";
-		}
-	
-		return result.slice(0, result.length - padding.length) + padding;
+		const encodedString = btoa(str);
+ 		 return encodedString;
 	}
 
 	static base64Decode(str:any) {
-		// Base64 character set
-		const chars =
-			"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
-	
-		let result = "";
-		let padding = 0;
-	
-		// Remove any invalid characters from the input string
-		str = str.replace(/[^A-Za-z0-9+/=]/g, "");
-	
-		for (let i = 0; i < str.length; i += 4) {
-			const byte1 = chars.indexOf(str.charAt(i));
-			const byte2 = chars.indexOf(str.charAt(i + 1));
-			const byte3 = chars.indexOf(str.charAt(i + 2));
-			const byte4 = chars.indexOf(str.charAt(i + 3));
-	
-			const char1 = (byte1 << 2) | (byte2 >> 4);
-			const char2 = ((byte2 & 15) << 4) | (byte3 >> 2);
-			const char3 = ((byte3 & 3) << 6) | byte4;
-	
-			result += String.fromCharCode(char1);
-	
-			if (byte3 !== 64) {
-				result += String.fromCharCode(char2);
-			}
-	
-			if (byte4 !== 64) {
-				result += String.fromCharCode(char3);
-			}
-	
-			// Count padding characters
-			if (byte4 === 64) {
-				padding++;
-			}
-		}
-	
-		// Remove padding characters from the end of the result
-		result = result.slice(0, result.length - padding);
-	
-		return result;
+		const decodedString = atob(str);
+		return decodedString;
 	}
 	
 	static md5(input: string): string {
 		const hash = MD5(input);
 		return hash;
 	}
-	
-	  
 	
 	static watchGlobalData(logging = false){
 		clearInterval(Global.interval);
