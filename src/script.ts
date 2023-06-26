@@ -261,18 +261,18 @@ class Global {
 		}
 	}
 	
-	static toInt(n=0){
+	static toInt(n:any){
 		if(typeof n != "undefined" && n != null && !isNaN(n)){
-			return parseInt(n);
+			return parseInt(n.toString(), 10);
 		}
 		else{
 			return 0;
 		}
 	}
 	
-	static toFloat(n=0){
+	static toFloat(n:any){
 		if(typeof n != "undefined" && n != null && !isNaN(n)){
-			return parseFloat(n);
+			return parseFloat(n.toString());
 		}
 		else{
 			return 0;
